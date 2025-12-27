@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPREME | OFFICIAL STORE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Courier+Prime:wght@700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="xmas-banner">
+        ❄️ MERRY <span>SUPREME</span> CHRISTMAS & HAPPY NEW DROP 2025 ❄️
+    </div>
+
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="logo">SUPREME</div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="BUSCAR..." onkeyup="filterProducts()">
+        </div>
+
+        <div class="header-icons">
+            <button class="icon-btn" onclick="toggleTheme()" title="Cambiar Tema">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <button class="icon-btn" onclick="openUserModal()" title="Mi Cuenta">👤</button>
+            <button class="icon-btn" onclick="openCartModal()" title="Carrito">
+                🛒 <span class="badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMenu()"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>CATEGORÍAS</h3>
+            <button class="close-menu-btn" onclick="toggleMenu()">×</button>
+        </div>
+        <ul class="sidebar-menu">
+            <li onclick="filterCategory('all')">VER TODO</li>
+            <li onclick="filterCategory('clothes')"> ROPA / HOODIES</li>
+            <li onclick="filterCategory('shoes')"> ELETRONICOS</li>
+            <li onclick="filterCategory('hats')"> GORRAS / ACCESORIOS</li>
+            <li onclick="filterCategory('accessories')">TECNOLOGIA</li>
+        </ul>
+    </div>
+
+    <div class="hero-slider" id="hero-slider">
+        
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('supreme.jpg');">
+            <div class="hero-content">
+                <h1>NEW DROP <br> SPRING 2025</h1>
+                <p>LA COLECCIÓN MÁS EXCLUSIVA DEL AÑO.</p>
+                <button class="hero-btn" onclick="scrollToShop()">COMPRAR AHORA</button>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('banner2.jpg');">
+            <div class="hero-content">
+                <h1>LIMITED EDITION</h1>
+                <p>SNEAKERS ÚNICOS EN STOCK.</p>
+                <button class="hero-btn" onclick="scrollToShop()">VER MÁS</button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('banner3.jpg');">
+            <div class="hero-content">
+                <h1>SUPREME LIFESTYLE</h1>
+                <p>DISEÑADO PARA LAS CALLES.</p>
+                <button class="hero-btn" onclick="scrollToShop()">EXPLORAR</button>
+            </div>
+        </div>
+
+        <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">CATÁLOGO EXCLUSIVO</h2>
+        <div class="products-grid" id="products-grid"></div>
+    </div>
+
+    <footer class="supreme-footer">
+        <div class="footer-container">
+            <h3 class="footer-title">SÍGUEME</h3>
+            <div class="contact-links">
+                
+                <a href="https://instagram.com/jhonzxz7_" target="_blank" class="contact-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                </a>
+                
+                <a href="https://youtube.com/" target="_blank" class="contact-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+
+            </div>
+            <p class="copyright">© 2025 DESIGNED BY RICOOMUERTO</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>CHECKOUT VIP</h2>
+                <button class="close-btn" onclick="closePaymentModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="credit-card" id="visual-card">
+                    <div class="card-top">
+                        <div class="chip"></div>
+                        <div class="card-logo-container" id="visual-logo"></div>
+                    </div>
+                    <div class="card-number" id="visual-number">•••• •••• •••• ••••</div>
+                    <div class="card-bottom">
+                        <div class="card-holder"><div class="label">TITULAR</div><div id="visual-name">NOMBRE APELLIDO</div></div>
+                        <div class="card-expires"><div class="label">EXPIRA</div><div id="visual-exp">MM/AA</div></div>
+                    </div>
+                </div>
+
+                <form class="payment-form" onsubmit="processPayment(event)">
+                    <div class="input-group"><label>TITULAR</label><input type="text" id="card-name" oninput="updateCardVisual()" maxlength="22" required></div>
+                    <div class="input-group"><label>TARJETA</label><input type="text" id="card-num" oninput="updateCardVisual()" maxlength="19" required></div>
+                    <div style="display:flex; gap:10px;">
+                        <div class="input-group"><label>EXP</label><input type="text" id="card-exp" oninput="updateCardVisual()" maxlength="5" required></div>
+                        <div class="input-group"><label>CVV</label><input type="password" id="card-cvv" maxlength="4" required></div>
+                    </div>
+                    
+                    <div class="total-display">TOTAL: <span id="payment-total-amount">$0 MXN</span></div>
+
+                    <div class="accepted-cards">
+                        <span>Aceptamos:</span>
+                        <b style="color:#1a1f71">VISA</b>
+                        <b style="color:#ff0000">MASTER</b>
+                        <b style="color:#006fcf">AMEX</b>
+                    </div>
+
+                    <button type="submit" class="action-btn red-btn">CONFIRMAR PAGO</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header"><h2>CARRITO</h2><button class="close-btn" onclick="closeCartModal()">×</button></div>
+            <div id="cart-items"></div>
+            <div id="cart-footer" style="padding:20px; display:none;">
+                <h3>Total: <span id="cart-total">$0 MXN</span></h3>
+                <button class="action-btn red-btn" onclick="openPaymentModal()">PAGAR AHORA</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="user-modal">
+        <div class="modal-content">
+            <div class="modal-header"><h2>MI CUENTA</h2><button class="close-btn" onclick="closeUserModal()">×</button></div>
+            <div id="auth-container" class="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="notification-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
